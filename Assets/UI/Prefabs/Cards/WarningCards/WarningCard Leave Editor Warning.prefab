@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7577708220429648930
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 357162030053464973, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_text
+      value: Szenarienbearbeitung verlassen?
+      objectReference: {fileID: 0}
+    - target: {fileID: 990603966628824634, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_Name
+      value: WarningCard Leave Editor Warning
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 352
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 177
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011417832278250941, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279282650488522353, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_text
+      value: "Alle ungespeicherten \xC4nderungen am Szenario gehen verloren."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043898078702739599, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_text
+      value: Abbrechen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8387394908577153243, guid: 7ea31f23adf2e4b43ae2df131d0701f0,
+        type: 3}
+      propertyPath: m_text
+      value: Verlassen
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7ea31f23adf2e4b43ae2df131d0701f0, type: 3}

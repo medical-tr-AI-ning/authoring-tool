@@ -1,0 +1,62 @@
+## Unity ##
+###########
+
+*.cs diff=csharp text
+*.cginc text
+*.shader text
+
+*.mat merge=unityyamlmerge eol=lf
+*.anim merge=unityyamlmerge eol=lf
+*.unity merge=unityyamlmerge eol=lf lockable
+*.prefab merge=unityyamlmerge eol=lf lockable
+*.physicsMaterial2D merge=unityyamlmerge eol=lf
+*.physicMaterial merge=unityyamlmerge eol=lf
+*.asset merge=unityyamlmerge eol=lf
+*.meta merge=unityyamlmerge eol=lf
+*.controller merge=unityyamlmerge eol=lf
+
+## git-lfs tracked binaries ##
+##############################
+*.[3][dD][mM] filter=lfs diff=lfs merge=lfs -text lockable
+*.[3][dD][sS] filter=lfs diff=lfs merge=lfs -text lockable
+*.[bB][lL][eE][nN][dD] filter=lfs diff=lfs merge=lfs -text lockable
+*.[cC][4][dD] filter=lfs diff=lfs merge=lfs -text lockable
+*.[cC][oO][lL][lL][aA][dD][aA] filter=lfs diff=lfs merge=lfs -text lockable
+*.[dD][aA][eE] filter=lfs diff=lfs merge=lfs -text lockable
+*.[dD][xX][fF] filter=lfs diff=lfs merge=lfs -text lockable
+*.[fF][bB][xX] filter=lfs diff=lfs merge=lfs -text lockable
+*.[jJ][aA][sS] filter=lfs diff=lfs merge=lfs -text lockable
+*.[lL][wW][sS] filter=lfs diff=lfs merge=lfs -text lockable
+*.[lL][xX][oO] filter=lfs diff=lfs merge=lfs -text lockable
+*.[mM][aA] filter=lfs diff=lfs merge=lfs -text lockable
+*.[mM][aA][xX] filter=lfs diff=lfs merge=lfs -text lockable
+*.[mM][bB] filter=lfs diff=lfs merge=lfs -text lockable
+*.[oO][bB][jJ] filter=lfs diff=lfs merge=lfs -text lockable
+*.[pP][lL][yY] filter=lfs diff=lfs merge=lfs -text lockable
+*.[sS][kK][pP] filter=lfs diff=lfs merge=lfs -text lockable
+*.[sS][tT][lL] filter=lfs diff=lfs merge=lfs -text lockable
+*.[zZ][tT][lL] filter=lfs diff=lfs merge=lfs -text lockable
+*.[aA][iI][fF] filter=lfs diff=lfs merge=lfs -text lockable
+*.[aA][iI][fF][fF] filter=lfs diff=lfs merge=lfs -text lockable
+*.[iI][tT] filter=lfs diff=lfs merge=lfs -text lockable
+*.[mM][oO][dD] filter=lfs diff=lfs merge=lfs -text lockable
+*.[mM][pP][3] filter=lfs diff=lfs merge=lfs -text lockable
+*.[oO][gG][gG] filter=lfs diff=lfs merge=lfs -text lockable
+*.[sS][3][mM] filter=lfs diff=lfs merge=lfs -text lockable
+*.[wW][aA][vV] filter=lfs diff=lfs merge=lfs -text lockable
+*.[xX][mM] filter=lfs diff=lfs merge=lfs -text lockable
+*.[oO][tT][fF] filter=lfs diff=lfs merge=lfs -text lockable
+*.[tT][tT][fF] filter=lfs diff=lfs merge=lfs -text lockable
+*.[bB][mM][pP] filter=lfs diff=lfs merge=lfs -text lockable
+*.[eE][xX][rR] filter=lfs diff=lfs merge=lfs -text lockable
+*.[gG][iI][fF] filter=lfs diff=lfs merge=lfs -text lockable
+*.[hH][dD][rR] filter=lfs diff=lfs merge=lfs -text lockable
+*.[iI][fF][fF] filter=lfs diff=lfs merge=lfs -text lockable
+*.[jJ][pP][eE][gG] filter=lfs diff=lfs merge=lfs -text lockable
+*.[jJ][pP][gG] filter=lfs diff=lfs merge=lfs -text lockable
+*.[pP][iI][cC][tT] filter=lfs diff=lfs merge=lfs -text lockable
+*.[pP][nN][gG] filter=lfs diff=lfs merge=lfs -text lockable
+*.[pP][sS][dD] filter=lfs diff=lfs merge=lfs -text lockable
+*.[tT][gG][aA] filter=lfs diff=lfs merge=lfs -text lockable
+*.[tT][iI][fF] filter=lfs diff=lfs merge=lfs -text lockable
+*.[tT][iI][fF][fF] filter=lfs diff=lfs merge=lfs -text lockable
