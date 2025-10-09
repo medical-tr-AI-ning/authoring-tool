@@ -1,0 +1,117 @@
+name: Build Unity Binary & Create Release Template
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+# Needed for creating draft releases
+permissions:
+  contents: write
+
+jobs:
+  build-executable:
+    name: Build VR Runtime Executable
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Free up space on runner
+        run: |
+          # Keep /opt/hostedtoolcache so Node-backed actions can run/capture post-steps
+          sudo rm -rf /usr/lib/jvm
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/share/swift
+          sudo rm -rf /usr/local/.ghcup
+          sudo rm -rf /usr/local/julia*
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /usr/local/share/chromium
+          sudo rm -rf /opt/microsoft /opt/google
+          sudo rm -rf /opt/az
+          sudo rm -rf /usr/local/share/powershell
+          docker system prune -af || true
+          docker builder prune -af || true
+          df -h
+
+      - name: Checkout main repository
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+
+      - name: Set up SSH for Submodule Access
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Clone submodule via SSH
+        run: |
+          git submodule init
+          git config submodule.Submodules/common-assets.url git@github.com:medical-tr-AI-ning/common-assets.git
+          git submodule update --depth 1
+
+      - name: Restore Unity Library Cache
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-
+
+      - name: Pull Unity Editor image
+        run: docker pull ${{ vars.UNITY_EDITOR_DOCKER_IMAGE }}
+
+      - name: Build Executable using Unity Editor
+        env:
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          BUILD_NAME: ${{ vars.UNITY_BUILD_NAME }}
+          BUILD_TARGET: ${{ vars.UNITY_BUILD_TARGET }}
+        run: |
+          set -euo pipefail
+          docker run --rm \
+            -e UNITY_SERIAL \
+            -e UNITY_EMAIL \
+            -e UNITY_PASSWORD \
+            -e BUILD_NAME \
+            -e BUILD_TARGET \
+            -e UNITY_DIR="${GITHUB_WORKSPACE}" \
+            -w "${GITHUB_WORKSPACE}" \
+            -v "${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE}" \
+            ${{ vars.UNITY_EDITOR_DOCKER_IMAGE }} \
+            /bin/bash -euo pipefail -c "bash '${GITHUB_WORKSPACE}/.github/workflows/scripts/build-executable.sh'"
+
+      - name: Verify build output & fix permissions
+        run: |
+          set -euo pipefail
+          test -d Builds
+          sudo chown -R "$USER:$USER" Builds Library || true
+
+      - name: Create zip for release
+        working-directory: ${{ github.workspace }}
+        run: |
+          set -euo pipefail
+          zip -r "${{ vars.ARTIFACT_BASE_NAME }}-${{ github.ref_name }}.zip" Builds
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-archive
+          path: "${{ github.workspace }}/${{ vars.ARTIFACT_BASE_NAME }}-${{ github.ref_name }}.zip"
+
+  create-release:
+    needs: build-executable
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download binary artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: release-archive
+          path: ${{ runner.temp }}/release
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ runner.temp }}/release/*.zip
+          draft: true
