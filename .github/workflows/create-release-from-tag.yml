@@ -61,9 +61,13 @@ jobs:
       - name: Pull Unity Editor image
         run: docker pull ${{ vars.UNITY_EDITOR_DOCKER_IMAGE }}
 
+      - name: Mask Serial
+        run: echo "::add-mask::${{ secrets.UNITY_SERIAL_MASKED }}"
+
       - name: Build Executable using Unity Editor
         env:
           UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+          UNITY_SERIAL_MASKED: ${{ secrets.UNITY_SERIAL_MASKED }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           BUILD_NAME: ${{ vars.UNITY_BUILD_NAME }}
@@ -89,16 +93,16 @@ jobs:
           sudo chown -R "$USER:$USER" Builds Library || true
 
       - name: Create zip for release
-        working-directory: ${{ github.workspace }}
+        working-directory: ${{ github.workspace }}/Builds/${{ vars.UNITY_BUILD_TARGET }}
         run: |
           set -euo pipefail
-          zip -r "${{ vars.ARTIFACT_BASE_NAME }}-${{ github.ref_name }}.zip" Builds
+          zip -r "${{ vars.ARTIFACT_BASE_NAME }}-${{ github.ref_name }}.zip" *
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
           name: release-archive
-          path: "${{ github.workspace }}/${{ vars.ARTIFACT_BASE_NAME }}-${{ github.ref_name }}.zip"
+          path: "${{ github.workspace }}/Builds/${{ vars.UNITY_BUILD_TARGET }}/${{ vars.ARTIFACT_BASE_NAME }}-${{ github.ref_name }}.zip"
 
   create-release:
     needs: build-executable
