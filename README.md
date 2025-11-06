@@ -11,6 +11,27 @@ The platform allows medical students to train clinical competencies from a first
 
 [Read more about the project](https://medical-training-project.de/en/#project)
 
+# Features
+
+- Create **custom medical scenarios**, consisting of a VR environment, a patient character and an anamnesis interaction.
+- Export scenarios to experience in VR (using the [VR Runtime](https://github.com/medical-tr-AI-ning/vr-runtime))
+- Save and load presets for quick scenario creation.
+
+## Environment Customization
+
+- Choose between **multiple medical environments**.
+- Equip the room with **medical items**.
+
+<img width="1870" height="1080" alt="Authoring Tool Room Editing Screenshot" src="https://github.com/user-attachments/assets/f02acccc-a11c-4090-b385-43fabaa1ed24" />
+
+## Patient Customization
+
+- Define **personal details** to appear on the patient record in VR.
+- Create realistic **skin pathology characteristics**, including melanoma and naevi.
+- Write custom **answers to anamnesis questions** which the patient will respond with in the interactive dialogue.
+
+<img width="1870" height="1080" alt="Authoring Tool Patient Editing Screenshot" src="https://github.com/user-attachments/assets/6221e735-537b-4c84-932c-bdf8b7c4ba21" />
+
 # Usage
 
 ## Requirements
