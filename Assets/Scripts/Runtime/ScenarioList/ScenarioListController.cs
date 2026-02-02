@@ -62,8 +62,8 @@ namespace Runtime.ScenarioList
                 }
                 catch (Exception exception)
                 {
-                    Debug.LogError(
-                        $"Scenario at {scenarioDirectory} could not be parsed!: {exception}. It possibly uses a deprecated configuration format.");
+                    Debug.LogWarning(
+                        $"Scenario at {scenarioDirectory} could not be parsed! It possibly uses a deprecated configuration format. Exception: {exception.Message}. ");
                     continue;
                 }
 

@@ -50,6 +50,9 @@ namespace Runtime.Utils
 
         public static void ClearScenarioFolder(string directory)
         {
+            File.SetAttributes(directory, File.GetAttributes(directory) & ~FileAttributes.ReadOnly);
+            foreach (var p in Directory.EnumerateFileSystemEntries(directory, "*", SearchOption.AllDirectories))
+                File.SetAttributes(p, File.GetAttributes(p) & ~FileAttributes.ReadOnly);
             Directory.Delete(directory, true);
             Directory.CreateDirectory(directory);
         }

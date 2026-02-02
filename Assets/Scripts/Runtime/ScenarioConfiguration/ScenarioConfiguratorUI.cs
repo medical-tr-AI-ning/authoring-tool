@@ -52,8 +52,17 @@ namespace Runtime.ScenarioConfiguration
             if (response == null) return;
 
             ProgressFileWriter progressFileWriter = ProgressFileWriter.GetSingleton();
-            _scenarioConfigurator.SaveScenarioInputData(response.Title, response.Description, progressFileWriter,
-                response.SaveAsNew);
+            try
+            {
+                _scenarioConfigurator.SaveScenarioInputData(response.Title, response.Description, progressFileWriter,
+                    response.SaveAsNew);
+            }
+            catch (Exception e)
+            {
+                prompt.ClosePrompt();  
+                _notificationController.CreateNotification($"Speichern ist fehlgeschlagen: {e.Message}");
+            }
+
             var fileWriteProgressChangedAction = new ProgressFileWriter.FileWriteProgressChangedEvent(() =>
             {
                 Debug.Log($"{progressFileWriter.GetProgress() * 100}% completed");
